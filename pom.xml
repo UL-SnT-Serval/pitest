@@ -385,7 +385,7 @@
 		are used for few artifacts -->
 	<properties>
 		<!-- this revision number used only for local builds, release version is held within ci -->
-		<revision>0-SNAPSHOT</revision>
+		<revision>0-flakime</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
