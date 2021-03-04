@@ -41,6 +41,18 @@ public final class ProcessArgs {
     this.launchClassPath = launchClassPath;
   }
 
+  private ProcessArgs(final ProcessArgs other) {
+    this.launchClassPath = other.launchClassPath;
+    this.stdout = other.stdout;
+    this.stdErr = other.stdErr;
+    this.jvmArgs = other.jvmArgs;
+    this.javaAgentFinder = other.javaAgentFinder;
+    this.workingDir = other.workingDir;
+    this.javaExecutable = other.javaExecutable;
+    this.environmentVariables = other.environmentVariables;
+    this.useClasspathJar = other.useClasspathJar;
+  }
+
   public static ProcessArgs withClassPath(final String cp) {
     return new ProcessArgs(cp);
   }
@@ -120,4 +132,12 @@ public final class ProcessArgs {
   public Map<String, String> getEnvironmentVariables() {
     return this.environmentVariables;
   }
+
+  public ProcessArgs forEnvironment(String environment) {
+    ProcessArgs processArgs = new ProcessArgs(this);
+    this.environmentVariables.put(environment, "true");
+
+    return processArgs;
+  }
+
 }
