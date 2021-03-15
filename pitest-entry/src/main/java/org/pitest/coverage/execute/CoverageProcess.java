@@ -19,7 +19,7 @@ public class CoverageProcess {
       final CoverageOptions arguments, final ServerSocket socket,
       final List<String> testClases, final Consumer<CoverageResult> handler)
           throws IOException {
-    this.process = new WrappingProcess(socket.getLocalPort(), processArgs,
+    this.process = new WrappingProcess(socket.getLocalPort(), processArgs.forEnvironment("PITEST_COMPUTE_COVERAGE"),
         CoverageMinion.class);
     this.crt = new CoverageCommunicationThread(socket, arguments, testClases,
         handler);
