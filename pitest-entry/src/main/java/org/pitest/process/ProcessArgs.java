@@ -133,9 +133,9 @@ public final class ProcessArgs {
     return this.environmentVariables;
   }
 
-  public ProcessArgs forEnvironment(String environment) {
+  public ProcessArgs forEnvironment(String environment,String val) {
     ProcessArgs processArgs = new ProcessArgs(this);
-    this.environmentVariables.put(environment, "true");
+    this.environmentVariables.put(environment, val);
 
     return processArgs;
   }

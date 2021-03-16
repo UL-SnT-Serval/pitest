@@ -19,7 +19,7 @@ public class MutationTestProcess {
 
   public MutationTestProcess(final ServerSocket socket,
       final ProcessArgs processArgs, final MinionArguments arguments) {
-    this.process = new WrappingProcess(socket.getLocalPort(), processArgs.forEnvironment("PITEST_MUTATION_TEST"),
+    this.process = new WrappingProcess(socket.getLocalPort(), processArgs.forEnvironment("PITEST_COMPUTE_COVERAGE","false"),
         MutationTestMinion.class);
     this.thread = new MutationTestCommunicationThread(socket, arguments,
         new HashMap<MutationIdentifier, MutationStatusTestPair>());
